@@ -6,3 +6,20 @@ obj/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Secrets and environment files management, keep out of version control
+.env
+*.env
+secrets.json
+*.pfx
+*.pem
+*.key
+
+# Logs and IDE temp files
+*.log
+*.swp
+*~
+
+# Visual Studio (in case someone uses it for editing)
+.vs/
+*.suo
