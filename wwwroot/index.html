@@ -8,7 +8,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>DevOps Study Planner</h1>    
+
+    <header class="app-header">
+        <h1>DevOps Study Planner</h1>
+        <p class="app-subtitle">Track your study tasks for CS7504 — Security for DevOps</p>
+    </header>
+
+    <main class="app-main">
+
+        <section class="task-input-section" aria-label="Add a new task">
+            <h2>Add a study task</h2>
+
+            <form id="task-form">
+                <label for="task-title">Task</label>
+                <input type="text" id="task-title" name="task-title"
+                       placeholder="e.g. Revise NSG priority rules" required>
+
+                <label for="task-due">Due date</label>
+                <input type="date" id="task-due" name="task-due" required>
+
+                <button type="submit">Add task</button>
+            </form>
+        </section>
+
+        <section class="task-list-section" aria-label="Your tasks">
+            <h2>Your tasks</h2>
+            <ul id="task-list">
+            </ul>
+            <p id="empty-message">No tasks yet. Add your first study task above.</p>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <p id="task-counter">0 tasks</p>
+    </footer>
+
     <script src="app.js"></script>
 </body>
 </html>
