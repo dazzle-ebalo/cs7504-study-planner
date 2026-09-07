@@ -1,0 +1,15 @@
+:root {
+    --colour-ink: #22303c;
+    --colour-muted: #64748b;
+    --colour-bg: #f4f6f8;
+    --colour-card: #ffffff;
+    --colour-header: #1b2a41;
+    --colour-accent: #0e7c7b;
+    --colour-accent-dark: #0a5f5e;
+    --colour-border: #dbe2e8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
