@@ -1,11 +1,25 @@
 const taskForm = document.querySelector("#task-form");
 const taskTitleInput = document.querySelector("#task-title");
 const taskDueInput = document.querySelector("#task-due");
+const taskPriorityInput = document.querySelector("#task-priority");
 const taskList = document.querySelector("#task-list");
 const emptyMessage = document.querySelector("#empty-message");
 const taskCounter = document.querySelector("#task-counter");
 
 let tasks = [];
+
+const STORAGE_KEY = "studyPlannerTasks";
+
+function saveTasks() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+}
+
+function loadTasks() {
+    const savedText = localStorage.getItem(STORAGE_KEY);
+    if (savedText !== null) {
+        tasks = JSON.parse(savedText);
+    }
+}
 
 taskForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -14,10 +28,12 @@ taskForm.addEventListener("submit", function (event) {
         id: Date.now(),
         title: taskTitleInput.value.trim(),
         dueDate: taskDueInput.value,
+        priority: taskPriorityInput.value,
         done: false
     };
 
     tasks.push(newTask);
+    saveTasks();
     renderTasks();
     taskForm.reset();
     taskTitleInput.focus();
@@ -29,6 +45,7 @@ function toggleDone(taskId) {
             task.done = !task.done;
         }
     }
+    saveTasks();
     renderTasks();
 }
 
@@ -36,6 +53,7 @@ function deleteTask(taskId) {
     tasks = tasks.filter(function (task) {
         return task.id !== taskId;
     });
+    saveTasks();
     renderTasks();
 }
 
@@ -49,9 +67,12 @@ function renderTasks() {
 
         const dueDateNZ = new Date(task.dueDate).toLocaleDateString("en-NZ");
 
+        const priority = task.priority || "medium";
+
         listItem.innerHTML = `
             <div class="task-text">
                 <span class="task-title">${task.title}</span>
+                <span class="priority-badge priority-${priority}">${priority}</span>
                 <span class="task-due">due ${dueDateNZ}</span>
             </div>
             <div class="task-buttons">
@@ -75,4 +96,5 @@ function renderTasks() {
         `${tasks.length} task${tasks.length === 1 ? "" : "s"} · ${doneCount} completed`;
 }
 
+loadTasks();
 renderTasks();
