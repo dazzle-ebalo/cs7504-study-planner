@@ -26,3 +26,5 @@ Student B: Amatul Safi
 
 Features:
 - Tasks can be added with a title and due date, with a task counter.
+-Task can be deleted and mark 'done'
+-
