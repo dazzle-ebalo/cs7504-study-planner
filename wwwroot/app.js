@@ -7,6 +7,19 @@ const taskCounter = document.querySelector("#task-counter");
 
 let tasks = [];
 
+const STORAGE_KEY = "studyPlannerTasks";
+
+function saveTasks() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+}
+
+function loadTasks() {
+    const savedText = localStorage.getItem(STORAGE_KEY);
+    if (savedText !== null) {
+        tasks = JSON.parse(savedText);
+    }
+}
+
 taskForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -18,6 +31,7 @@ taskForm.addEventListener("submit", function (event) {
     };
 
     tasks.push(newTask);
+    saveTasks();
     renderTasks();
     taskForm.reset();
     taskTitleInput.focus();
@@ -29,6 +43,7 @@ function toggleDone(taskId) {
             task.done = !task.done;
         }
     }
+    saveTasks();
     renderTasks();
 }
 
@@ -36,6 +51,7 @@ function deleteTask(taskId) {
     tasks = tasks.filter(function (task) {
         return task.id !== taskId;
     });
+    saveTasks();
     renderTasks();
 }
 
@@ -75,4 +91,5 @@ function renderTasks() {
         `${tasks.length} task${tasks.length === 1 ? "" : "s"} · ${doneCount} completed`;
 }
 
+loadTasks();
 renderTasks();
