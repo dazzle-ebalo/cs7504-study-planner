@@ -138,3 +138,14 @@ section h2 {
     color: var(--colour-muted);
     font-size: 0.92rem;
 }
+
+.app-footer {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+#task-counter {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 0.85rem;
+    color: var(--colour-muted);
+}
