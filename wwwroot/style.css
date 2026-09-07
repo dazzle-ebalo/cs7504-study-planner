@@ -149,3 +149,34 @@ section h2 {
     font-size: 0.85rem;
     color: var(--colour-muted);
 }
+
+.task-done .task-title {
+    text-decoration: line-through;
+    color: var(--colour-muted);
+}
+
+.task-buttons {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.task-buttons button {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.82rem;
+    font-family: inherit;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid var(--colour-border);
+    background-color: #ffffff;
+    color: var(--colour-ink);
+}
+
+.btn-done:hover {
+    border-color: var(--colour-accent);
+    color: var(--colour-accent);
+}
+
+.btn-delete:hover {
+    border-color: #c0392b;
+    color: #c0392b;
+}
