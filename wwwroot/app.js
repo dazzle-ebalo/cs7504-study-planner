@@ -23,3 +23,24 @@ taskForm.addEventListener("submit", function (event) {
     taskForm.reset();
     taskTitleInput.focus();
 });
+
+function renderTasks() {
+    taskList.innerHTML = "";
+
+    for (const task of tasks) {
+        const listItem = document.createElement("li");
+        listItem.className = "task-item";
+
+        const dueDateNZ = new Date(task.dueDate).toLocaleDateString("en-NZ");
+
+        listItem.innerHTML = `
+            <div class="task-text">
+                <span class="task-title">${task.title}</span>
+                <span class="task-due">due ${dueDateNZ}</span>
+            </div>
+        `;
+
+        taskList.appendChild(listItem);
+    }
+}
+renderTasks();
