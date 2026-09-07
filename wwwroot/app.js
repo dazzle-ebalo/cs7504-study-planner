@@ -27,6 +27,9 @@ taskForm.addEventListener("submit", function (event) {
 function renderTasks() {
     taskList.innerHTML = "";
 
+    emptyMessage.style.display = tasks.length === 0 ? "block" : "none";
+
+
     for (const task of tasks) {
         const listItem = document.createElement("li");
         listItem.className = "task-item";
@@ -42,5 +45,10 @@ function renderTasks() {
 
         taskList.appendChild(listItem);
     }
+        
+    taskCounter.textContent = `${tasks.length} task${tasks.length === 1 ? "" : "s"}`;
 }
 renderTasks();
+
+
+
