@@ -180,3 +180,43 @@ section h2 {
     border-color: #c0392b;
     color: #c0392b;
 }
+
+#task-form select {
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--colour-border);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #ffffff;
+}
+
+#task-form select:focus {
+    outline: 2px solid var(--colour-accent);
+    outline-offset: 1px;
+}
+
+.priority-badge {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.priority-high {
+    background-color: #fdecea;
+    color: #c0392b;
+}
+
+.priority-medium {
+    background-color: #fdf3e7;
+    color: #b9770e;
+}
+
+.priority-low {
+    background-color: #eaf5ef;
+    color: #2e7d54;
+}
